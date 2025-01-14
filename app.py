@@ -26,6 +26,7 @@ def index():
     company_names = get_company_names()
 
     # last 7 days
+    date_list = sorted(date_list, key=lambda date: datetime.strptime(date, "%Y-%m-%d"))
     latest_day = datetime.strptime(date_list[-1], "%Y-%m-%d") if date_list else datetime.now()
     dates = [(latest_day - timedelta(days=i)).strftime("%Y-%m-%d") for i in range(6, -1, -1)]
     last_7_days_application_numbers = []

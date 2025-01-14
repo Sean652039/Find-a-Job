@@ -17,7 +17,7 @@ Job hunting has become increasingly challenging lately. This tool is designed to
 │   └───index.html
 ├───app.py
 ├───db_api.py
-├───init_api.py
+├───init_db.py
 ```
 
 The `index.html` should be divided into separate HTML, CSS, and JS files, but I'm not familiar with how to do this.

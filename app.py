@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, flash
+from flask import Flask, render_template, request, jsonify, flash, send_from_directory
 from datetime import datetime, timedelta
 import os
 
@@ -12,6 +12,11 @@ if not os.path.exists('database/database.db'):
 
 # Create the Flask app
 app = Flask(__name__, template_folder="templates")
+
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory('static', 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 
 @app.route('/')

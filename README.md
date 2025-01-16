@@ -52,3 +52,5 @@ Then, open http://127.0.0.1:5000 in your browser.
 ## Acknowledgements
 
 This project is inspired by [this video](https://youtu.be/Koh5WpuX8VA?si=NIzwT55FKwwUimPV).
+
+Emoji graphics are from the open source project Twemoji, licensed under CC-BY 4.0. Copyright 2020 Twitter, Inc and other contributors.

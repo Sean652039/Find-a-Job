@@ -125,9 +125,17 @@ def update_application():
             if row['offer'] == 1:
                 info['offer_numbers'] += 1
 
+        max_round = max(k for k in info.keys() if isinstance(k, int))
+        for i in range(max_round, 0, -1):
+            if i < max_round:
+                if i not in info.keys():
+                    info[i] = info.get(i + 1, 0)
+                    continue
+                info[i] += info[i + 1]
+
         # Format stages data
         stages = [{"stage": "Applications", "count": info['application_numbers']}]
-        max_round = max(k for k in info.keys() if isinstance(k, int))
+        # max_round = max(k for k in info.keys() if isinstance(k, int))
         for i in range(1, max_round + 1):
             stages.append({"stage": f"{i} Interview", "count": info.get(i, 0)})
         stages.append({"stage": "Offers", "count": info['offer_numbers']})
@@ -215,9 +223,19 @@ def update_stage():
                 if row['offer'] == 1:
                     info['offer_numbers'] += 1
 
+            max_round = max(k for k in info.keys() if isinstance(k, int))
+            for i in range(max_round, 0, -1):
+                if i < max_round:
+                    if i not in info.keys():
+                        info[i] = info.get(i + 1, 0)
+                        continue
+                    info[i] += info[i + 1]
+
+
+
             # Format stages data
             stages = [{"stage": "Applications", "count": info['application_numbers']}]
-            max_round = max(k for k in info.keys() if isinstance(k, int))
+            # max_round = max(k for k in info.keys() if isinstance(k, int))
             for i in range(1, max_round + 1):
                 stages.append({"stage": f"{i} Interview", "count": info.get(i, 0)})
             stages.append({"stage": "Offers", "count": info['offer_numbers']})
